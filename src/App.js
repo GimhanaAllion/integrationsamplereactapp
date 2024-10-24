@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RegistrationForm from './components/registrationForm/RegistrationForm';
+import WorkflowExecuteForm from './components/workflowExecuteForm/WorkflowExecuteForm';
+import MonitoringForm from './components/monitoringForm/MonitoringForm';
+import SchedulingForm from './components/schedulingForm/SchedulingForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RegistrationForm />} />
+        <Route path="/workflow-execute" element={<WorkflowExecuteForm />} />
+        <Route path="/workflow-monitoring" element={<MonitoringForm />} />
+        <Route path="/workflow-scheduling" element={<SchedulingForm />} />
+      </Routes>
+    </Router>
   );
 }
 
